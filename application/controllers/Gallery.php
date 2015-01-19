@@ -15,11 +15,11 @@ class Gallery extends Application {
      */
     public function index() {
         // get all the images from our model
-        $pix = $this->imges->all();
+        $pix = $this->images->all();
         
         // build an array of formatted cells from them
         foreach ($pix as $picture)
-            $cell[] = $this->parser->parse('_cell', (array)$picture, true);
+            $cells[] = $this->parser->parse('_cell', (array)$picture, true);
         
         // prime the table class
         $this->load->library('table');
