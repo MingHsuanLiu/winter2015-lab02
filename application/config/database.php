@@ -101,7 +101,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'comp4711.localhost',
+	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'picassos',
