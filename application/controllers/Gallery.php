@@ -14,13 +14,14 @@ class Gallery extends Application {
      * Gallery Page for this controller.
      */
     public function index() {
-        // get all the images from our model
+        // get the newest images from our model
         $pix = $this->images->all();
-        
-        // build an array of formatted cells from them
-        foreach ($pix as $picture)
-            $cells[] = $this->parser->parse('_cell', (array)$picture, true);
-        
+
+        // build an array of formatted cells for them
+        foreach ($pix as $picture) {
+            $cells[] = $this->parser->parse('_cell', (array) $picture, true);
+        }
+
         // prime the table class
         $this->load->library('table');
         $parms = array(
@@ -29,10 +30,10 @@ class Gallery extends Application {
             'cell_alt_start' => '<td class="oneimage">'
         );
         $this->table->set_template($parms);
-        
+
         // finally! generate the table
         $rows = $this->table->make_columns($cells, 3);
-        $this->data['thetable'] = $this->generate($rows);
+        $this->data['thetable'] = $this->table->generate($rows);
 
         $this->data['pagebody'] = 'gallery';
         $this->render();
